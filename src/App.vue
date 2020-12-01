@@ -1,17 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <button v-on:click="setShow">Hello</button>
+  <h1>
+    {{ title }} from
+    <h1 v-html="showName"></h1>
+  </h1>
+  <input v-model="name" type="text" v-on:input="setName" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      title: "Heyy Vueee3",
+      name: "Dev Sharma",
+      showName: "Dev Sharma",
+    };
+  },
+  methods: {
+    setShow() {
+      this.showName = this.showName
+        .split("")
+        .reverse()
+        .join("");
+    },
+    setName() {
+      this.showName = this.name;
+    },
+  },
+};
 </script>
 
 <style>
